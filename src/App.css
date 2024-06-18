@@ -1,0 +1,57 @@
+.navbar-collapse{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    justify-content: flex-end !important;
+    align-items:flex-end !important;
+}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Raleway", sans-serif !important;
+}
+.navbar{
+    background-image: linear-gradient(100deg, rgb(247, 14, 199),rgb(24, 34, 250));
+}
+.nav-link{
+    font-weight: bold !important;
+    font-size: 100 !important;
+    border-radius: 10px;
+}
+.nav-link:hover{
+    background-color: #F70EC7 !important;
+    color: black !important;
+}
+.btn-primary:hover{
+    background-color:  #F70EC7 !important;
+    border: none;
+}
+.navbar-toggler{
+    background-color: #F70EC7 !important; 
+}
+.butn{
+    background-color: #F70EC7 !important; 
+    border: none;
+    color: black;
+    font-weight: bold !important;
+}
+.butn:hover{
+    background-color: blueviolet !important; 
+    border: none;
+    color: black;
+    font-weight: bold !important;
+}
+.tts{
+    color: #F70EC7 !important;
+}
+.ttc{
+    color:blueviolet;
+}
+.card-title{
+    color:#F70EC7 !important;
+}
+.card-text{
+    color: blueviolet;
+}
+.card:hover{
+    zoom:150%;
+}
