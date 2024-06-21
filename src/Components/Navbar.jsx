@@ -23,8 +23,8 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto">
             <li className="nav-item ms-0 ms-md-3">
-                <Link to='/home' className="nav-link disabled" aria-current="page" href="#">
-                  Home
+                <Link to='/profile' className="nav-link" aria-current="page" href="#">
+                  Profile
                 </Link>
               </li>
               <li className="nav-item ms-0 ms-md-3">

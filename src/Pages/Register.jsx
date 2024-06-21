@@ -1,26 +1,33 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [msg, setMsg] = useState("");
+  const [role, setRole] = useState('')
+
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = { userName, email, password };
+    const payload = { userName, email, password, role };
     await axios
       .post("http://localhost:5000/api/user/register-user", payload)
-      .then((res) => setMsg(res.data.message))
+      .then((res) =>{
+        toast.success(res.data.message)
+        navigate('/login')
+      })
       .catch((error) => {
         console.log(error);
-        setMsg(error.data.message);
+        toast.error(error.response.data.message)
       });
-      setTimeout(()=>{
-        navigate("/login");
-      },1000)
+      setEmail('')
+      setPassword('')
+      setUserName('')
+      setRole('')
   };
 
   return (
@@ -66,10 +73,25 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </p>
+          <p>
+            <label htmlFor="role">Role:</label>
+            <input
+              type="text"
+              name="role"
+              id="role"
+              placeholder="Enter Your Role"
+              required
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            />
+          </p>
           <button type="submit">Register</button>
         </fieldset>
       </form>
-      <h1>{msg}</h1>
+          <br/>
+          <button><Link to='/login'>Login</Link></button>
+          <br/><br/>
+          <button><Link to='/'>Back</Link></button>
     </div>
   );
 };

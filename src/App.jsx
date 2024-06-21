@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Register from './Pages/Register';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
-import LandingPage from './Pages/LandingPage';
 import "./App.css";
-
+import Profile from './Pages/Profile';
+import { ToastContainer } from 'react-toastify';
 const App = () => {
+  //State for token
+  const [token,setToken]=useState('')
   return (
     <div>
      <BrowserRouter>
+     <div>
+      <ToastContainer />
+     </div>
      <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/home' element={<LandingPage />} />
+      <Route path='/login' element={<Login setToken={setToken}/>} />
+      <Route path='/profile' element={<Profile token={token}/>} />
       </Routes>
       </BrowserRouter> 
     </div>
